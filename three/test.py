@@ -3,16 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-fig = plt.figure()
-
-ax = Axes3D(fig)
-x = np.arange(-4, -4, 0.25)
-y = x ** 2
-z = y ** 0.5 * x
-
-ax.scatter(x, y, z)
-
-plt.show()
+# fig = plt.figure()
+#
+# ax = Axes3D(fig)
+# x = np.arange(-4, -4, 0.25)
+# y = x ** 2
+# z = y ** 0.5 * x
+#
+# ax.scatter(x, y, z)
+#
+# plt.show()
 
 
 # fig = plt.figure()
@@ -37,3 +37,12 @@ plt.show()
 # ax.set_zlim(-2,2)
 # plt.show()
 #
+
+x = [[1,2],[5,6],[16,6]]
+print(x)
+x.remove([1,2])
+print(x)
+
+couple = ([1,2],[3,4])
+
+print(couple)
