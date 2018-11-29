@@ -13,8 +13,8 @@ def get_points():
     随机获取15个点
     :return:
     """
-    x = np.random.randint(low=1, high=20, size=15)
-    y = np.random.randint(low=2, high=18, size=15)
+    x = np.random.randint(low=-10, high=10, size=15)
+    y = np.random.randint(low=-10, high=10, size=15)
     points = []
     for index in range(len(x)):
         point = [x[index], y[index]]

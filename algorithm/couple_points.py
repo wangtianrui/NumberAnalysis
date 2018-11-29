@@ -95,7 +95,35 @@ def draw(couples, points, target_point):
     plt.close()
 
 
+def solve_(points):
+    min_couple = []
+    diff = 100
+    for i in range(len(points)):
+        for j in range(i + 1, len(points)):
+            temp_diff = get_distance(points[i], points[j])
+            if diff >= temp_diff:
+                diff = temp_diff
+                if len(min_couple) != 0:
+                    min_couple.pop()
+                min_couple.append([points[i], points[j]])
+                print("当前最近点对为：", min_couple)
+                draw_(min_couple, points)
+
+
+def draw_(couple, points):
+    x = [point[0] for point in points]
+    y = [point[1] for point in points]
+    plt.scatter(x, y)
+
+    points1 = couple[0][0]
+    points2 = couple[0][1]
+    xs = [points1[0], points2[0]]
+    ys = [points1[1], points2[1]]
+    plt.plot(xs, ys, color="R")
+    time.sleep(1)
+    plt.show()
+
+
 if __name__ == "__main__":
     points = get_points()
-    print(points)
-    couples = solve(points)
+    couples = solve_(points)
