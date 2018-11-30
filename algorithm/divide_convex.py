@@ -10,8 +10,8 @@ def get_points():
     随机获取15个点
     :return:
     """
-    x = np.random.randint(low=-10, high=10, size=15)
-    y = np.random.randint(low=-10, high=10, size=15)
+    x = np.random.randint(low=-10, high=10, size=8)
+    y = np.random.randint(low=-10, high=10, size=8)
     points = []
     for index in range(len(x)):
         point = [x[index], y[index]]
@@ -88,8 +88,9 @@ def dhull(points, x, y):
             if get_distance(points[x], points[y], points[index]) > dis:
                 dis = get_distance(points[x], points[y], points[index])
                 farthest = index
-    if farthest <= 0:
-        convex_points.append(points[x])
+    if farthest < 0:
+        if points[x] not in convex_points:
+            convex_points.append(points[x])
         if points[y] not in convex_points:
             convex_points.append(points[y])
         draw(convex_points, points)
@@ -118,8 +119,9 @@ def uhull(points, x, y):
             if get_distance(points[x], points[y], points[index]) > dis:
                 dis = get_distance(points[x], points[y], points[index])
                 farthest = index
-    if farthest <= 0:
-        convex_points.append(points[x])
+    if farthest < 0:
+        if points[x] not in convex_points:
+            convex_points.append(points[x])
         if points[y] not in convex_points:
             convex_points.append(points[y])
         draw(convex_points, points)
@@ -137,9 +139,12 @@ def uhull(points, x, y):
 def draw(margin_points, points):
     margin_x = [x[0] for x in margin_points]
     margin_y = [y[1] for y in margin_points]
+    margin_x.append(margin_points[0][0])
+    margin_y.append(margin_points[0][1])
 
     origin_x = [x[0] for x in points]
     origin_y = [y[1] for y in points]
+
     plt.scatter(origin_x, origin_y)
     plt.plot(margin_x, margin_y, color="R")
     time.sleep(1)
@@ -148,5 +153,8 @@ def draw(margin_points, points):
 
 if __name__ == "__main__":
     points = get_points()
+    # points = [[1, -5], [5, -10], [-8, 1], [-5, 7], [-2, -9], [5, 7], [2, 5], [-10, 0]]
+    print(points)
     solve(points)
     draw(convex_points, points)
+    print(convex_points)

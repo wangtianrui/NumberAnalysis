@@ -126,4 +126,5 @@ def draw_(couple, points):
 
 if __name__ == "__main__":
     points = get_points()
+    points = [[1, -5], [5, -10], [-8, 1], [-5, 7], [-2, -9], [5, 7], [2, 5], [-10, 0]]
     couples = solve_(points)
