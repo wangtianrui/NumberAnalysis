@@ -10,8 +10,8 @@ def get_points():
     随机获取15个点
     :return:
     """
-    x = np.random.randint(low=-10, high=10, size=8)
-    y = np.random.randint(low=-10, high=10, size=8)
+    x = np.random.randint(low=-10, high=10, size=15)
+    y = np.random.randint(low=-10, high=10, size=15)
     points = []
     for index in range(len(x)):
         point = [x[index], y[index]]
@@ -20,7 +20,8 @@ def get_points():
 
 
 def solve(points):
-    sorted_points = sort_points_by_x(points)
+    # sorted_points = sort_points_by_x(points)
+    sorted_points = sorted(points)
     dhull(sorted_points, 0, len(points) - 1)
     uhull(sorted_points, 0, len(points) - 1)
 

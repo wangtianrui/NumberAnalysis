@@ -98,7 +98,7 @@ def sort_points_by_x(points):
 
 
 def divide_conquer(points):
-    points = sort_points_by_x(points)
+    points = sorted(points)
     nearest_dots = nearest_dot(points)
     print(nearest_dots)
     draw_(nearest_dots, points)
