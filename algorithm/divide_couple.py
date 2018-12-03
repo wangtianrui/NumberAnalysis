@@ -6,10 +6,10 @@ import time
 min_couple = []
 
 
-def nearest_dot(s):
-    length = len(s)
-    left = s[:(int)(length / 2)]
-    right = s[(int)(length / 2):]
+def nearest_dot(points):
+    length = len(points)
+    left = points[:(int)(length / 2)]
+    right = points[(int)(length / 2):]
     mid_x = (left[-1][0] + right[0][0]) / 2.0
     if len(left) > 2:
         lmin = nearest_dot(left)
