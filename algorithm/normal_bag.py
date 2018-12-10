@@ -25,16 +25,17 @@ def solve(values, weights, bag_max):
         else:
             break
     now_choice = np.array(now_choice)
-    sum_value = np.sum((now_choice > 0) * values)
+
+    sum_value = np.sum(now_choice / weights * values)
     return now_choice, sum_value
 
 
 if __name__ == "__main__":
     values = [1, 5, 3, 10, 3]
-    weights = [6, 8, 6, 6, 7]
+    weights = [6, 1, 6, 6, 7]
     bag_max = 12
     choice, value_sum = solve(values, weights, bag_max)
-    print(values)
-    print(weights)
-    print(choice)
+    print("values:", values)
+    print("weights:", weights)
+    print("拿取量  ", choice)
     print("总价值为", value_sum)
