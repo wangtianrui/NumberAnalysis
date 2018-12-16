@@ -94,7 +94,7 @@ def draw(points, abcs, section):
 
     for sect_index in range(len(section)):
         sect = section[sect_index]
-        x_temp = np.arange(start=sect[0] - 0.1, stop=sect[1] + 0.2, step=0.2)
+        x_temp = np.arange(start=sect[0] - 0.1, stop=sect[1] + 0.1, step=0.05)
         y_temp = []
         for x in x_temp:
             if sect_index == 0:
